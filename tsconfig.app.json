@@ -4,6 +4,7 @@
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "types": ["element-plus/global"],
+    "strict": false,
     "composite": true,
     "noEmit": true,
     "baseUrl": ".",

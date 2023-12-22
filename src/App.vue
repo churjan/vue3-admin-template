@@ -10,3 +10,6 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 
 const locale = zhCn
 </script>
+<style lang="scss">
+@use '@/styles/index.scss' as *;
+</style>
