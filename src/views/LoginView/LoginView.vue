@@ -16,9 +16,9 @@
           <el-form-item label="用户名" prop="username">
             <el-input v-model="ruleForm.username" :prefix-icon="User" placeholder="请输入用户名" />
           </el-form-item>
-          <el-form-item label="密码" prop="passsword">
+          <el-form-item label="密码" prop="password">
             <el-input
-              v-model="ruleForm.passsword"
+              v-model="ruleForm.password"
               :prefix-icon="Lock"
               type="password"
               placeholder="请输入密码"
@@ -46,11 +46,11 @@ const router = useRouter()
 const ruleFormRef = ref()
 const ruleForm = reactive({
   username: '',
-  passsword: ''
+  password: ''
 })
 const rules = reactive({
   username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-  passsword: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 })
 
 const onLogin = async (formEl) => {
