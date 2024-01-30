@@ -3,8 +3,7 @@
     <el-table-column
       v-for="column in tableColumns"
       :key="column.code"
-      :prop="column.code"
-      :label="column.title"
+      v-bind="{ prop: column.code, label: column.title }"
     >
     </el-table-column>
   </el-table>

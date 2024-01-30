@@ -1,5 +1,5 @@
 <template>
-  <GTable :table-data="tableData" :table-columns="tableColumns" />
+  <GTable v-bind="{ 'table-data': tableData, 'table-columns': tableColumns }" />
 </template>
 
 <script setup lang="ts">
