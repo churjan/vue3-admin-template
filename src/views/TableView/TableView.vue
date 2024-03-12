@@ -1,5 +1,5 @@
 <template>
-  <GTable v-bind="{ 'table-data': tableData, 'table-columns': tableColumns }">
+  <GTable v-bind="{ tableColumns, tableConfig }">
     <template #operationTpl="{ row }">
       <el-button type="primary" link @click="onEdit(row)">编辑</el-button>
     </template>
@@ -7,30 +7,38 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref, reactive } from 'vue'
 import GTable from '@/components/GTable.vue'
-import { getData } from '@/apis/table'
 
-const tableData = ref([])
+const tableConfig = reactive({
+  url: 'https://jsonplaceholder.typicode.com/users'
+})
 const tableColumns = ref([
   {
-    title: 'aName',
-    code: 'a',
-    tpl: 'timeTpl'
+    title: '邮箱',
+    code: 'email'
   },
   {
-    title: 'bName',
-    code: 'b',
-    tpl: 'switchTpl'
+    title: 'id',
+    code: 'id'
   },
   {
-    title: 'cName',
-    code: 'c'
+    title: '姓名',
+    code: 'name'
   },
   {
-    title: 'dName',
-    code: 'd'
+    title: '电话',
+    code: 'phone'
   },
+  {
+    title: '用户名',
+    code: 'username'
+  },
+  {
+    title: '网站',
+    code: 'website'
+  },
+
   {
     title: '操作',
     code: '',
@@ -38,13 +46,7 @@ const tableColumns = ref([
   }
 ])
 
-onMounted(() => {
-  getData().then((res: any) => {
-    tableData.value = res.data
-  })
-})
-
-const onEdit = (row: any) => {
+function onEdit(row: any) {
   console.log(row)
 }
 </script>

@@ -1,14 +1,21 @@
-export function getData() {
+import axios from 'axios'
+export function getData(
+  url,
+  params = {
+    pageIndex: 1,
+    pageSize: 10
+  }
+) {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        data: new Array(9).fill({
-          a: 1462233600000,
-          b: 0,
-          c: 'No. 189, Grove St, Los Angeles',
-          d: 'No. 189, Grove St, Los Angeles'
-        })
+    axios
+      .get(url, {
+        params: {
+          _page: params.pageIndex,
+          _limit: params.pageSize
+        }
       })
-    }, 200)
+      .then((res) => {
+        resolve(res)
+      })
   })
 }
