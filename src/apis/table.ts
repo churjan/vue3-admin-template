@@ -2,17 +2,14 @@ import axios from 'axios'
 export function getData(
   url,
   params = {
-    pageIndex: 1,
-    pageSize: 10
+    _page: 1,
+    _limit: 10
   }
 ) {
   return new Promise((resolve) => {
     axios
       .get(url, {
-        params: {
-          _page: params.pageIndex,
-          _limit: params.pageSize
-        }
+        params
       })
       .then((res) => {
         resolve(res)
